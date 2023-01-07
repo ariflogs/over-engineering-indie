@@ -2,3 +2,4 @@
 
 infra/.terraform
 certificates
+secrets

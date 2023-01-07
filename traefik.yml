@@ -1,0 +1,12 @@
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: devarifhossain@gmail.com
+      storage: /certificates/acme.json
+      httpChallenge:
+        entryPoint: web

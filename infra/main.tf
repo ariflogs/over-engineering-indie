@@ -6,11 +6,17 @@ terraform {
     }
   }
 
+  cloud {
+    organization = "ptmakers"
+    workspaces {
+      name = "over-engineering-indie"
+    }
+  }
   required_version = ">= 1.2.0"
 }
 
 provider "aws" {
-  region = "eu-central-1"
+  region = var.instance_region
 }
 
 resource "aws_instance" "app_server" {
@@ -18,6 +24,6 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.small" // $0.023/H
 
   tags = {
-    Name = "OverEngineeredVPS"
+    Name = var.instance_name
   }
 }
